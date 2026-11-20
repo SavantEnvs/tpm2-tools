@@ -1,0 +1,9 @@
+project: savantenvs/tpm2-tools
+target: print-attest
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/print-attest/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/build-afl/tools/tpm2 print -t TPMS_ATTEST @@
+    afl: true
+    timeout: 10

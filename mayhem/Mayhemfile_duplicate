@@ -1,0 +1,9 @@
+project: savantenvs/tpm2-tools
+target: duplicate
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/duplicate/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/build-afl/tools/tpm2 duplicate -T none -U @@ -G rsa -k /mayhem/mayhem/fixtures/rsa-key.pem -u dup.pub -r dup.priv -s dup.seed  # mayhem-lint: ok-image-path (read-only fixture)
+    afl: true
+    timeout: 10

@@ -1,0 +1,9 @@
+project: savantenvs/tpm2-tools
+target: tr-encode
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/tr-encode/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/build-afl/tools/tpm2 tr_encode -c 0x81010001 -u @@ -o out.tr
+    afl: true
+    timeout: 10

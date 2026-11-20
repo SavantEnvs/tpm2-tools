@@ -1,0 +1,9 @@
+project: savantenvs/tpm2-tools
+target: print-tpmt-public
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/print-tpmt-public/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/build-afl/tools/tpm2 print -t TPMT_PUBLIC @@
+    afl: true
+    timeout: 10

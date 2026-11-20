@@ -1,0 +1,9 @@
+project: savantenvs/tpm2-tools
+target: checkquote
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/checkquote/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/build-afl/tools/tpm2 checkquote -u /mayhem/mayhem/fixtures/rsa-pub.pem -m /mayhem/mayhem/fixtures/quote.msg -s /mayhem/mayhem/fixtures/quote.sig -f @@ -e /mayhem/test/integration/fixtures/event.bin  # mayhem-lint: ok-image-path (read-only fixture)
+    afl: true
+    timeout: 10

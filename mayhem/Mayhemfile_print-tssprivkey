@@ -1,0 +1,9 @@
+project: savantenvs/tpm2-tools
+target: print-tssprivkey
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/print-tssprivkey/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/build-afl/tools/tpm2 print -t TSSPRIVKEY_OBJ @@
+    afl: true
+    timeout: 10
